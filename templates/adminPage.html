@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Accessories- Administrator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <style type="text/css">
+  	
+  	.header_top{
+  		display: inline-block;
+  		float: right;
+  	}
+  	.list_item li{
+  		float: right;
+  		margin: 5px;
+  		list-style-type: none;
+
+  	}
+    #multpilebutton{
+      margin: 20px;
+      float: center;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $(function() {
+        $('#adminAddItem').click(function() {
+          $.ajax({url: '/adminAddItem',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+              console.log(response);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
+      });
+
+  </script>
+
+
+    });
+  </script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header_top">
+                    <ul class="list_item">
+                        <li> <a class="nav-link" href="/logout"><i class="fas fa-user-circle"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+       
+          <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+           <div class="row w-100">
+            <div class="col-md-8">
+              <a class="navbar-brand" href="#">
+            </a>
+              <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUS.html">About Us</a>
+              </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+
+            <div id="box">
+                  <form id="ui_element" class="sb_wrapper">
+                      <p>                   
+                          <input class="searchInput" type="text" placeholder="Search" />
+                          <button class="sb_search" type="submit" value="">Search</button>
+                          <button class="sb_cart" type="submit" value="">Cart</button>
+                      </p>
+                      
+                  </form>
+              </div>
+          </div>
+        </nav>
+        <div class = "float-right">
+          <ul class="sb_dropdown" style="display:none;">
+                          <li class="sb_filter">Filter your search</li>
+                          <li><input type="checkbox"/><label for="all"><strong>All Categories</strong></label></li>
+                          <li><input type="checkbox"/><label for="Mathematics">Mathematics</label></li>
+                          <li><input type="checkbox"/><label for="Physics">Physics</label></li>
+                          <li><input type="checkbox"/><label for="Chemistry">Chemistry</label></li>
+                          <li><input type="checkbox"/><label for="Bioology">Biology</label></li>
+                          <li><input type="checkbox"/><label for="Geology">Geology </label></li>
+                          
+              </ul>
+            </div>
+
+          </div>
+</header>
+<div class="container">
+    <div class = "row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1>Welcome: Admin</h1>
+        
+        <div id = "homepage">
+          <div>
+            <div id = 'multpilebutton'>
+              <form id = "adminAddForm" class="form-signin" action="/adminAddItem" method="post">
+                <button id = "adminAddItem" class="btn btn-sm btn-primary" type="submit"> Add New Items </button>
+              </form>
+            </div>
+            <div  id = 'multpilebutton'>
+              <button id = "deleteItem" class="btn btn-sm btn-danger" type="submit"> Delete Items </button>
+            </div>
+            <div  id = 'multpilebutton'>
+              <button id = "viewAllItems" class="btn btn-sm btn-info" type="submit"> View All Products</button>
+            </div>
+            <div  id = 'multpilebutton'>
+              <button id = "UpdateItems" class="btn btn-sm btn-warning" type="submit"> Update Items </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+
+
+
+
+</body>
+</html>
+
